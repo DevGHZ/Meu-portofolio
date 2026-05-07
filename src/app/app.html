@@ -143,7 +143,7 @@
       <div *ngIf="!loading()" class="projects-grid">
         <div *ngFor="let repo of repos()" class="project-card">
           <div class="project-image">
-            <img [src]="repo.imageUrl" [alt]="'Capa do projeto ' + repo.name" loading="lazy">
+            <img [src]="repo.imageUrl || ''" [alt]="'Capa do projeto ' + repo.name" loading="lazy">
           </div>
           <div class="project-card-inner">
             <div class="project-header">
