@@ -89,10 +89,6 @@
 
 /* Hero Section */
 .hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 4rem;
   min-height: 80vh;
 }
 
@@ -292,10 +288,7 @@
 
 /* About Section */
 .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+  /* Let Bootstrap handle columns */
 }
 
 .about-tabs {
@@ -603,7 +596,12 @@
 
 @media (max-width: 767.98px) {
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    word-break: break-word;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
   }
 
   .badge-blue { left: 10px; }
