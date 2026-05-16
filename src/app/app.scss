@@ -98,6 +98,7 @@
 
 .hero-content {
   position: relative;
+  z-index: 10;
 }
 
 .greeting {
@@ -110,6 +111,11 @@
   font-size: clamp(2.5rem, 8vw, 4rem);
   line-height: 1.1;
   margin-bottom: 1.5rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 1200px) {
+  .hero-title { white-space: normal; }
 }
 
 .highlight-orange { color: var(--accent-orange); }
@@ -164,11 +170,18 @@
 /* Image Wrapper (Shared between Hero and About) */
 .hero-image-wrapper, .about-image-wrapper {
   position: relative;
-  height: 450px; /* Reduced slightly to prevent cropping */
+  height: 500px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; /* Moved to the right */
   align-items: flex-end;
   margin-top: 2rem;
+  z-index: 5;
+}
+
+@media (max-width: 991.98px) {
+  .hero-image-wrapper, .about-image-wrapper {
+    justify-content: center; /* Keep centered on mobile */
+  }
 }
 
 .arch-bg {
