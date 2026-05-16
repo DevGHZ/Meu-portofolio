@@ -99,6 +99,10 @@
 .hero-content {
   position: relative;
   z-index: 10;
+  
+  @media (min-width: 992px) {
+    padding-right: 3rem;
+  }
 }
 
 .greeting {
@@ -111,11 +115,6 @@
   font-size: clamp(2.5rem, 8vw, 4rem);
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  white-space: nowrap;
-}
-
-@media (max-width: 1200px) {
-  .hero-title { white-space: normal; }
 }
 
 .highlight-orange { color: var(--accent-orange); }
@@ -170,9 +169,9 @@
 /* Image Wrapper (Shared between Hero and About) */
 .hero-image-wrapper, .about-image-wrapper {
   position: relative;
-  height: 500px;
+  height: 450px;
   display: flex;
-  justify-content: flex-end; /* Moved to the right */
+  justify-content: flex-end;
   align-items: flex-end;
   margin-top: 2rem;
   z-index: 5;
@@ -180,20 +179,20 @@
 
 @media (max-width: 991.98px) {
   .hero-image-wrapper, .about-image-wrapper {
-    justify-content: center; /* Keep centered on mobile */
+    height: 380px;
+    justify-content: center;
   }
 }
 
 .arch-bg {
   position: absolute;
   bottom: 0;
-  width: 320px;
-  height: 400px;
+  width: 280px;
+  height: 350px;
   background-color: var(--accent-orange);
-  border-radius: 200px 200px 0 0;
+  border-radius: 140px 140px 0 0;
   z-index: 1;
-  /* Creates the detached outline border effect */
-  box-shadow: 0 0 0 10px var(--bg-color), 0 0 0 14px var(--accent-green);
+  box-shadow: 0 0 0 8px var(--bg-color), 0 0 0 12px var(--accent-green);
   animation: pulse-arch 6s ease-in-out infinite;
 }
 
@@ -352,6 +351,8 @@
 .about-text {
   color: var(--text-light);
   margin-bottom: 2rem;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .about-text p {
