@@ -1,3 +1,4 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 :root {
@@ -44,9 +45,9 @@ a {
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  /* Using Bootstrap's container but keeping custom padding if needed */
+  padding-left: 1.25rem !important;
+  padding-right: 1.25rem !important;
 }
 
 /* Base Utility Classes */
@@ -87,7 +88,7 @@ a {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: clamp(3rem, 10vw, 5rem) 0;
 }
 
 .section-header {

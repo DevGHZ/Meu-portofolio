@@ -107,7 +107,7 @@
 }
 
 .hero-title {
-  font-size: 4rem;
+  font-size: clamp(2.5rem, 8vw, 4rem);
   line-height: 1.1;
   margin-bottom: 1.5rem;
 }
@@ -483,14 +483,117 @@
   border-top: 1px solid var(--border-light);
 }
 
-@media (max-width: 992px) {
-  .hero, .about-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
+/* Mobile Toggle Button */
+.mobile-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+
+  span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-dark);
+    border-radius: 3px;
+    transition: var(--transition);
+  }
+
+  &.open {
+    span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+  }
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+
+  &.active {
+    transform: translateX(0);
+  }
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+
+    &:hover {
+      color: var(--accent-orange);
+    }
+  }
+}
+
+.mobile-socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  .social-icon {
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--radius-pill);
+    background-color: var(--bg-color);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) {
+  .section { padding: 4rem 0; }
+  
+  .hero-image-wrapper, .about-image-wrapper {
+    height: 400px;
   }
   
-  .hero-desc { margin: 0 auto 2rem; }
-  .rating-cards { justify-content: center; display: flex; }
-  .about-tabs, .stats-row, .about-actions { justify-content: center; }
-  .nav-menu { display: none; } /* Simplified for mobile */
+  .arch-bg {
+    width: 280px;
+    height: 350px;
+  }
+
+  .hero-img, .about-img {
+    height: 100%;
+  }
+
+  .tech-stack-banner {
+    padding: 1.5rem 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .badge-blue { left: 10px; }
+  .badge-green { right: 10px; }
+
+  .stat-item h3 { font-size: 1.5rem; }
 }

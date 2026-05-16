@@ -19,6 +19,15 @@ export class App implements OnInit {
   
   protected activeTab = signal<'resumo' | 'formacao' | 'experiencia'>('resumo');
   protected totalProjects = signal<number>(0);
+  protected isMenuOpen = signal<boolean>(false);
+
+  toggleMenu() {
+    this.isMenuOpen.update(v => !v);
+  }
+
+  closeMenu() {
+    this.isMenuOpen.set(false);
+  }
 
   ngOnInit() {
     // Fetch repositories
